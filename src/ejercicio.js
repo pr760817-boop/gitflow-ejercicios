@@ -1,3 +1,18 @@
+export function saludar(nombre) {
+  return `Hola ${nombre}, bienvenido`;
+}
+
+export function despedir(nombre) {
+  return `Adiós ${nombre}, hasta pronto`;
+}
+
+export function estadoSistema() {
+  return {
+    estado: "activo",
+    version: "1.0.0",
+    timestamp: new Date().toISOString()
+  };
+}
 export function ejercicio1() {
   return Array.from({ length: 10 }, (_, i) => i + 1);
 }
