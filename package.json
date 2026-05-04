@@ -6,7 +6,7 @@
   "description": "primera aplicacion Angela flow",
   "description": "primera aplicacion Angela flow",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/ejercicio.js",
     "test": "node test/app.test.js"
   }
 }
