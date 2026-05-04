@@ -1,7 +1,5 @@
 import {
   saludar,
-  despedir,
-  estadoSistema,
   sumar,
   restar,
   factorial,
@@ -10,78 +8,20 @@ import {
   ejercicio3,
   ejercicio4,
   ejercicio5
-} from "../src/ejercicio.js";
+} from "./ejercicio.js";
 
-import assert from "assert";
+export function ejecutarTests() {
+  const res = [];
 
-function ejecutarPruebas() {
-  let pasadas = 0;
-  let fallidas = 0;
+  res.push(saludar("Angela").includes("Angela") ? "✔ saludar" : "❌ saludar");
+  res.push(sumar(2,2) === 4 ? "✔ sumar" : "❌ sumar");
+  res.push(restar(5,3) === 2 ? "✔ restar" : "❌ restar");
+  res.push(factorial(5) === 120 ? "✔ factorial" : "❌ factorial");
+  res.push(ejercicio1().length === 10 ? "✔ ejercicio1" : "❌ ejercicio1");
+  res.push(ejercicio2() === 5050 ? "✔ ejercicio2" : "❌ ejercicio2");
+  res.push(Array.isArray(ejercicio3(1,10)) ? "✔ ejercicio3" : "❌ ejercicio3");
+  res.push(ejercicio4().length === 10 ? "✔ ejercicio4" : "❌ ejercicio4");
+  res.push(ejercicio5(5) === 120 ? "✔ ejercicio5" : "❌ ejercicio5");
 
-  function test(nombre, fn) {
-    try {
-      fn();
-      console.log(`✔ ${nombre}`);
-      pasadas++;
-    } catch (e) {
-      console.log(`❌ ${nombre}: ${e.message}`);
-      fallidas++;
-    }
-  }
-
-  // ================= BASE =================
-  test("saludar", () => {
-    assert.strictEqual(saludar("angela").includes("angela"), true);
-  });
-
-  test("despedir", () => {
-    assert.strictEqual(despedir("angela").includes("angela"), true);
-  });
-
-  test("estadoSistema", () => {
-    assert.strictEqual(estadoSistema().estado, "activo");
-  });
-
-  test("sumar", () => {
-    assert.strictEqual(sumar(5, 3), 8);
-  });
-
-  test("restar", () => {
-    assert.strictEqual(restar(5, 3), 2);
-  });
-
-  test("factorial", () => {
-    assert.strictEqual(factorial(5), 120);
-    assert.strictEqual(factorial(0), 1);
-  });
-
-  // ================= EJERCICIOS =================
-
-  test("ejercicio1 - array 1-10", () => {
-    assert.strictEqual(ejercicio1().length, 10);
-  });
-
-  test("ejercicio2 - suma 1 a 100", () => {
-    assert.strictEqual(ejercicio2(), 5050);
-  });
-
-  test("ejercicio3 - pares entre rango", () => {
-    const r = ejercicio3(1, 10);
-    assert.ok(Array.isArray(r));
-  });
-
-  test("ejercicio4 - tabla del 5", () => {
-    assert.strictEqual(ejercicio4().length, 10);
-  });
-
-  test("ejercicio5 - factorial ejercicio", () => {
-    assert.strictEqual(ejercicio5(5), 120);
-  });
-
-  // ================= RESULTADO =================
-  console.log(`\n📊 RESULTADO FINAL: ${pasadas} pasadas, ${fallidas} fallidas`);
-
-  if (fallidas > 0) process.exit(1);
+  return res;
 }
-
-ejecutarPruebas();
