@@ -55,7 +55,7 @@ function calcular() {
 // =====================
 // 🧪 TESTS EN FRONTEND
 // =====================
-function mostrarTests() {
+function mostrarTest() {
   const resultados = ejecutarTest();
   resultadosDiv.innerHTML = resultados.join("<br>");
 }
