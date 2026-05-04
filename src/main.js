@@ -12,59 +12,54 @@ function calcular() {
         const num1 = parseFloat(numero1Input.value);
         const num2 = parseFloat(numero2Input.value);
 
-        // Validación: solo permitir strings en "nombre"
-        if (operacion !== 'nombre' && (isNaN(num1) || isNaN(num2))) {
-            throw new Error('Por favor ingresa números válidos');
-        }
-
         let resultado;
 
         switch (operacion) {
 
-
             case 'ejercicio1':
-                resultado = combine.ejer.ejercicio1(num1, num2);
-                mostrarResultado(`📌 Resultado: ${resultado}`);
+                resultado = combine.ejercicio1();
                 break;
 
             case 'ejercicio2':
-                resultado = combine.ejer.ejercicio2(num1, num2);
-                mostrarResultado(`📌 Resultado: ${resultado}`);
+                resultado = combine.ejercicio2();
                 break;
 
             case 'ejercicio3':
-                resultado = combine.ejer.ejercicio3(num1, num2);
-                mostrarResultado(`📌 Resultado: ${resultado}`);
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error('Por favor ingresa números válidos');
+                }
+                resultado = combine.ejercicio3(num1, num2);
                 break;
 
             case 'ejercicio4':
-                resultado = combine.ejer.ejercicio4(num1, num2);
-                mostrarResultado(`📌 Resultado: ${resultado}`);
+                resultado = combine.ejercicio4();
                 break;
 
             case 'ejercicio5':
-                resultado = combine.ejer.ejercicio5(num1, num2);
-                mostrarResultado(`📌 Resultado: ${resultado}`);
+                if (isNaN(num1)) {
+                    throw new Error('Ingresa un número válido');
+                }
+                resultado = combine.ejercicio5(num1);
                 break;
 
-
             case 'nombre':
-                resultado = combine.name();
-                mostrarResultado(`👤 El nombre es: ${resultado}`);
+                resultado = combine.saludar("Usuario");
                 break;
 
             default:
                 throw new Error('Operación no válida');
-                     }
+        }
 
-            } catch (error) {
-                        mostrarResultado(`❌ Error: ${error.message}`, 'error');
-                    }
-                }
+        mostrarResultado(`📌 Resultado: ${JSON.stringify(resultado)}`);
 
-                function mostrarResultado(mensaje, tipo = 'success') {
-                    resultadosDiv.textContent = mensaje;
-                    resultadosDiv.className = `result ${tipo}`;
-                }
+    } catch (error) {
+        mostrarResultado(`❌ Error: ${error.message}`, 'error');
+    }
+}
 
-                btncalcular.addEventListener('click', calcular);
+function mostrarResultado(mensaje, tipo = 'success') {
+    resultadosDiv.textContent = mensaje;
+    resultadosDiv.className = `result ${tipo}`;
+}
+
+btncalcular.addEventListener('click', calcular);
