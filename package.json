@@ -1,13 +1,12 @@
 {
   "name": "flowangela",
   "version": "1.0.0",
-  "type": "module",
-  "description": "Proyecto FlowAngela",
 
-"scripts": {
-  "start": "npx live-server",
-  "test": "node test/app.test.js"
-}
+  "scripts": {
+    "start": "npx live-server",
+    "test": "node test/app.test.js"
+  },
+
   "main": "version.js",
 
   "directories": {
