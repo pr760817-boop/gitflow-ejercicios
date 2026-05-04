@@ -4,11 +4,10 @@
   "type": "module",
   "description": "Proyecto FlowAngela",
 
-  "scripts": {
-    "test": "node test/app.test.js",
-    "start": "node src/main.js"
-  },
-
+"scripts": {
+  "start": "npx live-server",
+  "test": "node test/app.test.js"
+}
   "main": "version.js",
 
   "directories": {
