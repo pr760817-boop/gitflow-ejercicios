@@ -1,5 +1,5 @@
 import * as combine from './combine.js';
-import { ejecutarTests } from './runTest.js';
+import { ejecutarTest} from './runTest.js';
 
 const numero1Input = document.querySelector('#numero1');
 const numero2Input = document.querySelector('#numero2');
@@ -56,10 +56,10 @@ function calcular() {
 // 🧪 TESTS EN FRONTEND
 // =====================
 function mostrarTests() {
-  const resultados = ejecutarTests();
+  const resultados = ejecutarTest();
   resultadosDiv.innerHTML = resultados.join("<br>");
 }
 
 // Eventos
 btncalcular.addEventListener('click', calcular);
-btntest.addEventListener('click', mostrarTests);
+btntest.addEventListener('click', mostrarTest);

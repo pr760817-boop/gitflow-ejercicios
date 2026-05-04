@@ -10,7 +10,7 @@ import {
   ejercicio5
 } from "./ejercicio.js";
 
-export function ejecutarTests() {
+export function ejecutarTest() {
   const res = [];
 
   res.push(saludar("Angela").includes("Angela") ? "✔ saludar" : "❌ saludar");
