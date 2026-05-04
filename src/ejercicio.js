@@ -1,62 +1,67 @@
-const ejercicio1 = () => {
-    let cien= [];
-    for (let i = 1; i <= 10; i++) {
-        console.log(i);
-        alert(i);
-    }
-    return cien;
-};
+export function saludar(nombre) {
+  return `Hola ${nombre}, bienvenido`;
+}
 
-const ejercicio2 = () => {
-    let suma = 0;
-    let i = 1;
+export function despedir(nombre) {
+  return `Adiós ${nombre}, hasta pronto`;
+}
 
-    while (i <= 100) {
-        suma += i;
-        i++;
-    }
+export function estadoSistema() {
+  return {
+    estado: "activo",
+    version: "1.0.0",
+    timestamp: new Date().toISOString()
+  };
+}
 
-    alert("La suma total es: " + suma);
-    console.log("La suma total es: " + suma);
+export function sumar(a, b) {
+  return a + b;
+}
 
-    return suma;
-};
+export function restar(a, b) {
+  return a - b;
+}
 
-const ejercicio3 = (a,b) => {
-    for (let i = b; i <= a; i++) {
-        if (i % 2 === 0) {
-            console.log(i);
-            alert("Número par: " + i);
-        }
-    }
-    return [];
-};
+export function factorial(n) {
+  if (n < 0) throw new Error("No se permiten negativos");
+  if (n === 0 || n === 1) return 1;
+  return n * factorial(n - 1);
+}
 
-const ejercicio4 = () => {
-    let mensaje = "";
-    let i = 1;
+// ✅ EJERCICIOS LIMPIOS (sin alert ni console.log)
 
-    do {
-        mensaje += `5 x ${i} = ${5 * i}\n`;
-        i++;
-    } while (i <= 10);
+export function ejercicio1() {
+  return Array.from({ length: 10 }, (_, i) => i + 1);
+}
 
-    alert(mensaje);
-    return mensaje;
-};
+export function ejercicio2() {
+  let suma = 0;
+  for (let i = 1; i <= 100; i++) {
+    suma += i;
+  }
+  return suma;
+}
 
-const ejercicio5 = (numero) => {
-    let factorial = 1;
+export function ejercicio3(a, b) {
+  if (a > b) [a, b] = [b, a];
 
-    for (let i = 1; i <= numero; i++) {
-        factorial *= i;
-    }
+  const pares = [];
+  for (let i = a; i <= b; i++) {
+    if (i % 2 === 0) pares.push(i);
+  }
+  return pares;
+}
 
-    console.log("El factorial de " + numero + " es: " + factorial);
-    alert("El factorial de " + numero + " es: " + factorial);
+export function ejercicio4() {
+  return Array.from({ length: 10 }, (_, i) => `5 x ${i + 1} = ${5 * (i + 1)}`);
+}
 
-    return factorial;
-};
-export { 
-    ejercicio1, ejercicio2, ejercicio3,
-    ejercicio4, ejercicio5}
+export function ejercicio5(numero) {
+  if (numero < 0) throw new Error("No se permiten negativos");
+
+  let resultado = 1;
+  for (let i = 1; i <= numero; i++) {
+    resultado *= i;
+  }
+  return resultado;
+}
