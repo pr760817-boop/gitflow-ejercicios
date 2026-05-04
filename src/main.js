@@ -50,7 +50,7 @@ function calcular() {
                 throw new Error('Operación no válida');
         }
 
-        mostrarResultado(`📌 Resultado: ${JSON.stringify(resultado)}`);
+        mostrarResultado(`📌 Resultado: ${JSON.stringify(resultado, null, 2)}`);
 
     } catch (error) {
         mostrarResultado(`❌ Error: ${error.message}`, 'error');
