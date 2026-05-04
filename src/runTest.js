@@ -10,65 +10,78 @@ import {
   ejercicio3,
   ejercicio4,
   ejercicio5
-} from "./ejercicio.js";
+} from "../src/ejercicio.js";
 
-export function ejecutarTests() {
-  let resultados = [];
+import assert from "assert";
+
+function ejecutarPruebas() {
+  let pasadas = 0;
+  let fallidas = 0;
 
   function test(nombre, fn) {
     try {
       fn();
-      resultados.push(`✔ ${nombre}`);
+      console.log(`✔ ${nombre}`);
+      pasadas++;
     } catch (e) {
-      resultados.push(`❌ ${nombre}: ${e.message}`);
+      console.log(`❌ ${nombre}: ${e.message}`);
+      fallidas++;
     }
   }
 
   // ================= BASE =================
   test("saludar", () => {
-    if (!saludar("angela").includes("angela")) throw new Error("falló");
+    assert.strictEqual(saludar("angela").includes("angela"), true);
   });
 
   test("despedir", () => {
-    if (!despedir("angela").includes("angela")) throw new Error("falló");
+    assert.strictEqual(despedir("angela").includes("angela"), true);
   });
 
   test("estadoSistema", () => {
-    if (estadoSistema().estado !== "activo") throw new Error("falló");
+    assert.strictEqual(estadoSistema().estado, "activo");
   });
 
   test("sumar", () => {
-    if (sumar(5, 3) !== 8) throw new Error("falló");
+    assert.strictEqual(sumar(5, 3), 8);
   });
 
   test("restar", () => {
-    if (restar(5, 3) !== 2) throw new Error("falló");
+    assert.strictEqual(restar(5, 3), 2);
   });
 
   test("factorial", () => {
-    if (factorial(5) !== 120) throw new Error("falló");
+    assert.strictEqual(factorial(5), 120);
+    assert.strictEqual(factorial(0), 1);
   });
 
   // ================= EJERCICIOS =================
-  test("ejercicio1", () => {
-    if (ejercicio1().length !== 10) throw new Error("falló");
+
+  test("ejercicio1 - array 1-10", () => {
+    assert.strictEqual(ejercicio1().length, 10);
   });
 
-  test("ejercicio2", () => {
-    if (ejercicio2() !== 5050) throw new Error("falló");
+  test("ejercicio2 - suma 1 a 100", () => {
+    assert.strictEqual(ejercicio2(), 5050);
   });
 
-  test("ejercicio3", () => {
-    if (!Array.isArray(ejercicio3(1, 10))) throw new Error("falló");
+  test("ejercicio3 - pares entre rango", () => {
+    const r = ejercicio3(1, 10);
+    assert.ok(Array.isArray(r));
   });
 
-  test("ejercicio4", () => {
-    if (ejercicio4().length !== 10) throw new Error("falló");
+  test("ejercicio4 - tabla del 5", () => {
+    assert.strictEqual(ejercicio4().length, 10);
   });
 
-  test("ejercicio5", () => {
-    if (ejercicio5(5) !== 120) throw new Error("falló");
+  test("ejercicio5 - factorial ejercicio", () => {
+    assert.strictEqual(ejercicio5(5), 120);
   });
 
-  return resultados;
+  // ================= RESULTADO =================
+  console.log(`\n📊 RESULTADO FINAL: ${pasadas} pasadas, ${fallidas} fallidas`);
+
+  if (fallidas > 0) process.exit(1);
 }
+
+ejecutarPruebas();
