@@ -1,11 +1,24 @@
 {
-  "name": "flowAngela",
+  "name": "flowangela",
   "version": "1.0.0",
-  "type": "module",
-  "description": "Primera aplicación Angela Flow",
-
+  "description": "hola\r # Nombre del Proyecto",
+  "main": "version.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "start": "node src/ejercicio.js",
-    "test": "node test/app.test.js"
-  }
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pr760817-boop/gitflow-ejercicios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pr760817-boop/gitflow-ejercicios/issues"
+  },
+  "homepage": "https://github.com/pr760817-boop/gitflow-ejercicios#readme"
 }
