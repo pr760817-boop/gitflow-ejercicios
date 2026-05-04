@@ -55,11 +55,20 @@ function calcular() {
 // =====================
 // 🧪 TESTS EN FRONTEND
 // =====================
-function mostrarTest() {
-  const resultados = ejecutarTest();
-  resultadosDiv.innerHTML = resultados.join("<br>");
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-// Eventos
-btncalcular.addEventListener('click', calcular);
-btntest.addEventListener('click', mostrarTest);
+  const btntest = document.querySelector('#btntest');
+  const resultadosDiv = document.querySelector('#resultados');
+
+  function mostrarTests() {
+    const resultados = ejecutarTests();
+    resultadosDiv.innerHTML = resultados.join("<br>");
+  }
+
+  if (btntest) {
+    btntest.addEventListener('click', mostrarTests);
+  } else {
+    console.error("❌ No existe el botón btntest en el HTML");
+  }
+
+});
