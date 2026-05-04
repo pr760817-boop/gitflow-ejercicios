@@ -1,1 +1,1 @@
-export * as ejer from './ejercicio.js';
+export *from  './ejercicio.js';

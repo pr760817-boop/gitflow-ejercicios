@@ -7,52 +7,41 @@ const btncalcular = document.querySelector('#btncalcular');
 const resultadosDiv = document.querySelector('#resultados');
 
 function calcular() {
+  const op = operacionSelect.value;
+  const n1 = parseFloat(numero1Input.value);
+  const n2 = parseFloat(numero2Input.value);
+
+  let resultado;
+
   try {
-    const operacion = operacionSelect.value;
-    const num1 = parseFloat(numero1Input.value);
-    const num2 = parseFloat(numero2Input.value);
-
-    let resultado;
-
-    switch (operacion) {
+    switch (op) {
       case 'ejercicio1':
         resultado = combine.ejercicio1();
         break;
-
       case 'ejercicio2':
         resultado = combine.ejercicio2();
         break;
-
       case 'ejercicio3':
-        if (isNaN(num1) || isNaN(num2)) {
-          throw new Error('Por favor ingresa números válidos');
-        }
-        resultado = combine.ejercicio3(num1, num2);
+        resultado = combine.ejercicio3(n1, n2);
         break;
-
       case 'ejercicio4':
         resultado = combine.ejercicio4();
         break;
-
       case 'ejercicio5':
-        if (isNaN(num1)) {
-          throw new Error('Ingresa un número válido');
-        }
-        resultado = combine.ejercicio5(num1);
+        resultado = combine.ejercicio5(n1);
         break;
-
+      case 'nombre':
+        resultado = combine.saludar("Angela");
+        break;
       default:
-        throw new Error('Operación no válida');
+        throw new Error("Operación no válida");
     }
 
-    mostrarResultado(JSON.stringify(resultado, null, 2));
-  } catch (error) {
-    mostrarResultado(`❌ Error: ${error.message}`);
-  }
-}
+    resultadosDiv.textContent = JSON.stringify(resultado, null, 2);
 
-function mostrarResultado(mensaje) {
-  resultadosDiv.textContent = mensaje;
+  } catch (err) {
+    resultadosDiv.textContent = "❌ " + err.message;
+  }
 }
 
 btncalcular.addEventListener('click', calcular);
