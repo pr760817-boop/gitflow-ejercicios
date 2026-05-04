@@ -1,10 +1,10 @@
 import * as combine from './combine.js';
 
-const numero1Input = document.querySelector('numero1');
-const numero2Input = document.querySelector('numero2');
-const operacionSelect = document.querySelector('operacion');
-const btncalcular = document.querySelector('btncalcular');
-const resultadosDiv = document.querySelector('resultados');
+const numero1Input = document.querySelector('#numero1');
+const numero2Input = document.querySelector('#numero2');
+const operacionSelect = document.querySelector('#operacion');
+const btncalcular = document.querySelector('#btncalcular');
+const resultadosDiv = document.querySelector('#resultados');
 
 function calcular() {
     try {
@@ -41,7 +41,6 @@ function calcular() {
                 }
                 resultado = combine.ejercicio5(num1);
                 break;
-
 
             default:
                 throw new Error('Operación no válida');
