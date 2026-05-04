@@ -1,25 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=>hh1, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet" href=" ./public/styles.css>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculos CodeRider</title>
 </head>
-
 <body>
-    <header>
-        <h1> BIENVENIDO A CODE RIDER <h1>
-                <span> cargando ... </span>
-</body>
-<main>
-    <div class=´car`>
-        <h2> programando con git <h2>
-                <div class=´status` verificando el despliegue de la pgn>
-                </div>
+    <div class="container">
+        <h1>Cálculos CodeRider</h1>
+
+        <div class="input-group">
+            <label for="numero1">Número 1:</label>
+            <input type="number" id="numero1" value="10">
+        </div>
+        <div class="input-group">
+            <label for="numero2">Número 2:</label>
+            <input type="number" id="numero2" value="5">
+        </div>
+        <div class="input-group">
+            <label for="arrayInput">Vector/array:</label>
+            <input type="text" id="arrayInput" value="1,2,3,4,5">
+        </div>
+        <div class="input-group">
+            <label for="searchInput">Valor a buscar:</label>
+            <input type="text" id="searchInput" value="3">
+        </div>
+        <div class="input-group">
+            <label for="operacion">Operación:</label>
+            <select id="operacion">
+                
+                <option value="ejercicio20">Ejercicio 1/option>
+                <option value="ejercicio21">Ejercicio 2</option>
+                <option value="ejercicio22">Ejercicio 3</option>
+                <option value="ejercicio23">Ejercicio 4</option>
+                <option value="ejercicio24">Ejercicio 5</option>
+                
+                
+            </select>
+        </div>
+        <div class="input-group">
+            <label for="numeroInput">Número para contador regresivo:</label>
+            <input type="number" id="numeroInput" value="5">
+        </div>
+
+        <button id="btncalcular">Calcular 🚀</button>
+        <div class="result" id="resultados">El resultado aparecerá aquí...</div>
     </div>
-    <button onclick = "verificarSistema()"> verificar Sistema</button>
-    </main>
-    <scrip src = `app.js`></scrip>
+
+    <script type="module" src="js/main.js"></script>
+</body>
 </html>

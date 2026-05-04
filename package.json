@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
 
-  "description": "primera aplicacion felipe flow",
+  "description": "primera aplicacion Angela flow",
   "description": "primera aplicacion Angela flow",
   "scripts": {
     "start": "node src/app.js",
