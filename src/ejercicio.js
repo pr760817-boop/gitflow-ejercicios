@@ -1,35 +1,3 @@
-export function saludar(nombre) {
-  return `Hola ${nombre}, bienvenido`;
-}
-
-export function despedir(nombre) {
-  return `Adiós ${nombre}, hasta pronto`;
-}
-
-export function estadoSistema() {
-  return {
-    estado: "activo",
-    version: "1.0.0",
-    timestamp: new Date().toISOString()
-  };
-}
-
-export function sumar(a, b) {
-  return a + b;
-}
-
-export function restar(a, b) {
-  return a - b;
-}
-
-export function factorial(n) {
-  if (n < 0) throw new Error("No se permiten negativos");
-  if (n === 0 || n === 1) return 1;
-  return n * factorial(n - 1);
-}
-
-// ✅ EJERCICIOS LIMPIOS (sin alert ni console.log)
-
 export function ejercicio1() {
   return Array.from({ length: 10 }, (_, i) => i + 1);
 }
@@ -53,7 +21,10 @@ export function ejercicio3(a, b) {
 }
 
 export function ejercicio4() {
-  return Array.from({ length: 10 }, (_, i) => `5 x ${i + 1} = ${5 * (i + 1)}`);
+  return Array.from(
+    { length: 10 },
+    (_, i) => `5 x ${i + 1} = ${5 * (i + 1)}`
+  );
 }
 
 export function ejercicio5(numero) {
