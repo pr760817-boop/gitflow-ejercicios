@@ -5,7 +5,7 @@ import {
   sumar,
   restar,
   factorial
-} from "../src/app.js";
+} from "../src/ejercicio.js";
 
 import assert from "assert";
 
