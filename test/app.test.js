@@ -4,7 +4,12 @@ import {
   estadoSistema,
   sumar,
   restar,
-  factorial
+  factorial,
+  ejercicio1,
+  ejercicio2,
+  ejercicio3,
+  ejercicio4,
+  ejercicio5
 } from "../src/ejercicio.js";
 
 import assert from "assert";
@@ -13,60 +18,130 @@ function ejecutarPruebas() {
   let pasadas = 0;
   let fallidas = 0;
 
-  // Test 1
-  const r1 = saludar("angela");
-  if (r1.includes("angela")) {
-    console.log("Test 1 pasado");
+  // =====================
+  // BASE (PROFESOR)
+  // =====================
+
+  // SALUDAR
+  try {
+    assert.strictEqual(saludar("angela").includes("angela"), true);
+    console.log("✔ saludar OK");
     pasadas++;
-  } else {
-    console.log("Test 1 fallido:", r1);
+  } catch (e) {
+    console.log("❌ saludar FAIL");
     fallidas++;
   }
 
-  // Test 2
-  const actualEstado = estadoSistema();
-  if (actualEstado.estado === "activo") {
-    console.log("Test 2 pasado");
+  // DESPEDIR
+  try {
+    assert.strictEqual(despedir("angela").includes("angela"), true);
+    console.log("✔ despedir OK");
     pasadas++;
-  } else {
-    console.log("Test 2 fallido:", actualEstado);
+  } catch (e) {
+    console.log("❌ despedir FAIL");
     fallidas++;
   }
 
-  // Test 3
-  const r3 = sumar(5, 3);
-  if (r3 === 8) {
-    console.log("Test 3 pasado");
+  // ESTADO SISTEMA
+  try {
+    assert.strictEqual(estadoSistema().estado, "activo");
+    console.log("✔ estadoSistema OK");
     pasadas++;
-  } else {
-    console.log("Test 3 fallido:", r3);
+  } catch (e) {
+    console.log("❌ estadoSistema FAIL");
     fallidas++;
   }
 
-  // Test 4
-  const r4 = restar(5, 3);
-  if (r4 === 2) {
-    console.log("Test 4 pasado");
+  // SUMAR
+  try {
+    assert.strictEqual(sumar(5, 3), 8);
+    console.log("✔ sumar OK");
     pasadas++;
-  } else {
-    console.log("Test 4 fallido:", r4);
+  } catch (e) {
+    console.log("❌ sumar FAIL");
     fallidas++;
   }
 
-  // Test factorial
+  // RESTAR
+  try {
+    assert.strictEqual(restar(5, 3), 2);
+    console.log("✔ restar OK");
+    pasadas++;
+  } catch (e) {
+    console.log("❌ restar FAIL");
+    fallidas++;
+  }
+
+  // FACTORIAL
   try {
     assert.strictEqual(factorial(5), 120);
     assert.strictEqual(factorial(0), 1);
-    assert.strictEqual(factorial(1), 1);
-
-    console.log("Test factorial pasado");
+    console.log("✔ factorial OK");
     pasadas++;
-  } catch (error) {
-    console.log("Error factorial:", error.message);
+  } catch (e) {
+    console.log("❌ factorial FAIL");
     fallidas++;
   }
 
-  console.log(`\nResultados: ${pasadas} pasadas, ${fallidas} fallidas`);
+  // =====================
+  // EJERCICIOS (1–5)
+  // =====================
+
+  // EJERCICIO 1
+  try {
+    assert.strictEqual(ejercicio1().length, 10);
+    console.log("✔ ejercicio1 OK");
+    pasadas++;
+  } catch {
+    console.log("❌ ejercicio1 FAIL");
+    fallidas++;
+  }
+
+  // EJERCICIO 2
+  try {
+    assert.strictEqual(ejercicio2(), 5050);
+    console.log("✔ ejercicio2 OK");
+    pasadas++;
+  } catch {
+    console.log("❌ ejercicio2 FAIL");
+    fallidas++;
+  }
+
+  // EJERCICIO 3
+  try {
+    const r = ejercicio3(1, 10);
+    assert.ok(Array.isArray(r));
+    console.log("✔ ejercicio3 OK");
+    pasadas++;
+  } catch {
+    console.log("❌ ejercicio3 FAIL");
+    fallidas++;
+  }
+
+  // EJERCICIO 4
+  try {
+    assert.strictEqual(ejercicio4().length, 10);
+    console.log("✔ ejercicio4 OK");
+    pasadas++;
+  } catch {
+    console.log("❌ ejercicio4 FAIL");
+    fallidas++;
+  }
+
+  // EJERCICIO 5
+  try {
+    assert.strictEqual(ejercicio5(5), 120);
+    console.log("✔ ejercicio5 OK");
+    pasadas++;
+  } catch {
+    console.log("❌ ejercicio5 FAIL");
+    fallidas++;
+  }
+
+  // =====================
+  // RESULTADO FINAL
+  // =====================
+  console.log(`\n📊 RESULTADOS: ${pasadas} pasadas, ${fallidas} fallidas`);
 
   if (fallidas > 0) process.exit(1);
 }
