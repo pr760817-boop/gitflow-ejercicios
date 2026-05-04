@@ -3,8 +3,22 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Proyecto FlowAngela",
-
   "scripts": {
     "test": "node test/app.test.js"
-  }
+  },
+  "main": "version.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pr760817-boop/gitflow-ejercicios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pr760817-boop/gitflow-ejercicios/issues"
+  },
+  "homepage": "https://github.com/pr760817-boop/gitflow-ejercicios#readme"
 }
