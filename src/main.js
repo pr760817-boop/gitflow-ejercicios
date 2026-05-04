@@ -55,6 +55,14 @@ function calcular() {
 // =====================
 // 🧪 TESTS EN FRONTEND
 // =====================
+function mostrarTest() {
+  const resultados = ejecutarTest();
+  resultadosDiv.innerHTML = resultados.join("<br>");
+}
+
+// Eventos
+btncalcular.addEventListener('click', calcular);
+btntest.addEventListener('click', mostrarTest);
 document.addEventListener("DOMContentLoaded", () => {
 
   const btntest = document.querySelector('#btntest');
