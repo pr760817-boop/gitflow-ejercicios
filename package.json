@@ -1,13 +1,11 @@
 {
-  "name": "flowAngela", 
+  "name": "flowAngela",
   "version": "1.0.0",
   "type": "module",
+  "description": "Primera aplicación Angela Flow",
 
-  "description": "primera aplicacion Angela flow",
-  "description": "primera aplicacion Angela flow",
   "scripts": {
     "start": "node src/ejercicio.js",
     "test": "node test/app.test.js"
   }
 }
-
