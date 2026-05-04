@@ -1,5 +1,5 @@
 import * as combine from './combine.js';
-import { ejecutarTests } from './runTests.js';
+import { ejecutarTests } from './runTest.js';
 
 const numero1Input = document.querySelector('#numero1');
 const numero2Input = document.querySelector('#numero2');
